@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}{{ SITENAME }} - Categorías{% endblock %}
+
+{% block content %}
+<div class="header header-filter article-head" style="background-image: url('{{ SITEURL }}/theme/assets/img/background.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10">
+                    <h1 class="title">Categorías</h1>
+                    <p>Clasificación del contenido.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main main-raised">
+        <div class="container"><br />
+        <div class="row">
+            <div class="col-sm-8 col-md-8 col-sx-12 col-lg-9">
+              <h2 class="page_title">Categorías</h2>
+                <ul id="tag_list" class="catlist">
+                {% for category, articles in categories %}
+                    <li class="label label-primary"><a href="{{SITEURL}}/{{category.url}}">{{ category }}</a></li>
+                {% endfor %}
+                </ul>
+              <h2 class="page_title">Etiquetas</h2>
+                <ul id="tag_list" class="catlist">
+                {% for tag, articles in tags %}
+                    <li class="label label-success"><a href="{{SITEURL}}/{{tag.url}}">{{ tag }}</a></li>
+                {% endfor %}
+                </ul>
+            </div>
+            <div class="col-sm-4 col-md-4 col-sx-12 col-lg-3">
+            <br />
+                {% include 'twitter-sidebar.html' %}
+                {% include 'adsense-sidebar.html' %}
+            </div>
+        </div>
+        {% include 'adsense-footer.html' %}
+        <br />
+        </div>
+    </div>
+{% endblock %}

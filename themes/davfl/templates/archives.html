@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}{{ SITENAME }} - Archivo{% endblock %}
+
+{% block content %}
+<div class="header header-filter article-head" style="background-image: url('{{ SITEURL }}/theme/assets/img/background.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10">
+                    <h1 class="title">Archivo</h1>
+                    <p>Artículos de acuerdo a su fecha de publicación.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main main-raised">
+        <div class="container"><br />
+        <div class="row">
+            <div class="col-sm-8 col-md-8 col-sx-12 col-lg-9">
+              <table id="archives" class="table">
+                <tbody>
+                  <tr>
+                    <th width="25%">Publicado</th>
+                    <th>Título</th>
+                  </tr>
+              {% for article in dates %}
+                  <tr>
+                    <td width="25%">{{ article.date|strftime('%d/%B/%Y') }}</td>
+                    <td><a href='{{ article.url }}'>{{ article.title }}</a></td>
+                  </tr>
+              {% endfor %}
+                </tbody>
+              </table>
+            </div>
+            <div class="col-sm-4 col-md-4 col-sx-12 col-lg-3">
+            <br />
+                {% include 'twitter-sidebar.html' %}
+                {% include 'adsense-sidebar.html' %}
+            </div>
+        </div>
+        {% include 'adsense-footer.html' %}
+        <br />
+        </div>
+    </div>
+{% endblock %}

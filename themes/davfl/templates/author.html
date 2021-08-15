@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}{{ SITENAME }}{% endblock %}
+
+{% block content %}
+        <div class="header header-filter article-head" style="background-image: url('{{ SITEURL }}/theme/assets/img/background.jpg');">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="title">Más allá del lenguaje de programación</h1>
+                        <h4>Acerca de David León</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main main-raised">
+            <div class="container">
+                <div class="section text-center section-landing">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                            <h2 class="title">Licenciado en Ciencias de la Informática</h2>
+                            <h4 class="description">Profesional en tecnologías de la información, administrador web por convicción, desarrollador por puro placer y administrador de proyectos por que así lo dictan las circunstancias. Fanático, activista y adicto al software libre, creatividad común y código abierto.</h4>
+                            <h5 class="description">Siendo un profesionista egresado de la Unidad Profesional de Ingeniería Ciencias Sociales y Administrativas <b>UPIICSA</b> (clase 2005-2009) en <b>México</b>; mi pasión por el Internet, desarrollo Web y tecnología en general me han llevado por muchos caminos.</h5>
+                        </div>
+                    </div>
+
+                    <div class="features">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="info">
+                                    <div class="icon icon-primary">
+                                        <i class="fa fa-bar-chart"></i>
+                                    </div>
+                                    <h4 class="info-title">Proyectos</h4>
+                                    <p>Gestión de recursos, seguimiento de actividades y buenas prácticas en proyectos, de tipo tecnológico, me han dejado una gran experiencia (5 años).</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="info">
+                                    <div class="icon icon-success">
+                                        <i class="fa fa-file-code-o"></i>
+                                    </div>
+                                    <h4 class="info-title">Desarrollo</h4>
+                                    <p>El desarrollo Web ha sido mi principal meta, aunque llevo programando desde el año 2003; el camino recorrido me ha llevado desde ensamblador y C hasta Python y Java, pasando por SQL.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="info">
+                                    <div class="icon icon-danger">
+                                        <i class="fa fa-server"></i>
+                                    </div>
+                                    <h4 class="info-title">Servidores</h4>
+                                    <p>Scripts en bash, automatización de procesos y configuración de una gran variedad de servicios, tanto en Linux como en Windows, han sido otros de mis intereses.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><br />
+                {% include 'adsense-footer.html' %}<br />
+            </div>
+        </div>
+{% endblock %}

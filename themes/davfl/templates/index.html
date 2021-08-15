@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="{{ DEFAULT_LANG }}">
+<head>
+    <meta charset="utf-8" />
+    <title>{{ SITENAME }}</title>
+    <meta description="Publicación de noticias, tips y tutoriales de programación y tecnologías de la información" />
+    <meta name="author" content="{{ AUTHOR }}">
+    <meta author="{{ AUTHOR }}" />
+    <link rel="icon" href="{{ SITEURL }}/theme/favicon.ico">
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <link href="{{ SITEURL }}/theme/assets/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="{{ SITEURL }}/theme/assets/css/materialkit.css" rel="stylesheet"/>
+    <link href="{{ SITEURL }}/theme/assets/css/main.css" rel="stylesheet"/>
+</head>
+
+<body class="index-page">
+    {% include 'menu.html' %}
+    <div class="wrapper">
+        <div class="header header-filter" style="background-image: url('{{ SITEURL }}/theme/assets/img/background.jpg');">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h1 class="title">Más allá del lenguaje de programación</h1>
+                        <h4>Profesional en tecnologías de la información, administrador web por convicción, desarrollador por puro placer y administrador de proyectos por que así lo dictan las circunstancias. Fanático, activista y adicto al software libre, creatividad común y código abierto.</h4>
+                        <h4>Este sitio representa parte de mi conocimiento profesional y técnico, que dispongo para que cualquiera pueda hacer uso de este contenido.</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main main-raised">
+            <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sx-12 col-lg-9">
+      {% for article in (articles_page.object_list if articles_page else articles) %}  
+        <article class="post">
+          <h2 class="title"><a href="{{ SITEURL }}/{{ article.url}}">{{ article.title }}</a></h2>
+          <p>Publicado el {{ article.locale_date }}</p>
+          <section class="post_content">
+            {{ article.summary }}<br />
+            <a class="more" href="{{ SITEURL }}/{{ article.url }}">Seguir leyendo...</a>
+          </section>
+        </article><hr />
+      {% endfor %}
+
+      {% if articles_page %}
+          <nav class="pagination">
+          {% if articles_page.has_previous() %}
+            {% if articles_page.previous_page_number() == 1 %}
+                <a href="{{ SITEURL }}/{{ page_name }}.html">&#60;&#60;</a>
+            {% else %}
+                <a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.previous_page_number() }}.html">&#60;&#60;</a>
+            {% endif %}
+          {% endif %}
+          Pagina <b>{{ articles_page.number }}</b> de <b>{{ articles_paginator.num_pages }}</b>
+          {% if articles_page.has_next() %}
+            <a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html">&#62;&#62;</a>
+          {% endif %}
+          </nav>
+      {% endif%}
+                </div>
+                <div class="col-md-4 col-sx-12 col-lg-3"><br />
+                    {% include 'twitter-sidebar.html' %}
+                    {% include 'adsense-sidebar.html' %}
+                </div>
+            </div>
+
+  {% include 'adsense-footer.html' %}<br />
+            </div>
+        </div>
+
+        {% include 'footer.html' %}
+    </div>
+</body>
+{% include 'javascripts.html' %}
+</html>

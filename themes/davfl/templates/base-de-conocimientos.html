@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}{{ SITENAME }} - Base de Conocimientos{% endblock %}
+
+{% block content %}
+<div class="header header-filter article-head" style="background-image: url('{{ SITEURL }}/theme/assets/img/background.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1 class="title">Base de Conocimientos</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main main-raised">
+        <div class="container"><br />
+        <div class="row">
+            <div class="col-sm-8 col-md-8 col-sx-12 col-lg-9">
+              <h2 class="page_title">Lista de Etiquetas</h2>
+                <ul id="tag_list">
+                {% for tag, articles in tags %}
+                    <li><h3><a href="{{SITEURL}}/{{tag.url}}">{{ tag }}</a></h3></li>
+                {% endfor %}
+                </ul>
+              <h2 class="page_title">Lista de Categorias</h2>
+                <ul id="tag_list">
+                {% for category, articles in categories %}
+                    <li><h3><a href="{{SITEURL}}/{{category.url}}">{{ category }}</a></h3></li>
+                {% endfor %}
+                </ul>
+            </div>
+            <div class="col-sm-4 col-md-4 col-sx-12 col-lg-3">
+            <br />
+                {% include 'twitter-sidebar.html' %}
+                {% include 'adsense-sidebar.html' %}
+            </div>
+        </div>
+        {% include 'adsense-footer.html' %}
+        <br />
+        </div>
+    </div>
+{% endblock %}

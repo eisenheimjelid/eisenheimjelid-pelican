@@ -1,0 +1,5 @@
+<div class="meta align-right">
+  Publicado el <time datetime="{{ article.date.isoformat() }}" pubdate="pubdate">{{ article.date|strftime('%d de %B, %Y') }}</time>.
+  Categoria «<span class="label label-primary catego"><a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a></span>».  
+  {% if article.tags %} Etiquetado como: {% for tag in article.tags %}{%if loop.index > 1%}, {%endif%}<span class="label label-success catego"><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></span>{% endfor %}</p>{% endif %}
+</div> 

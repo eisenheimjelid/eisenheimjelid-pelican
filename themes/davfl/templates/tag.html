@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}{{ SITENAME }} - {{ tag }}{% endblock %}
+
+{% block content %}
+<div class="header header-filter article-head" style="background-image: url('{{ SITEURL }}/theme/assets/img/background.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10">
+                    <h1 class="title">Etiqueta «{{ tag }}»</h1>
+                    <p>Artículos que contienen la etiqueta: {{tag}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main main-raised">
+        <div class="container"><br />
+        <div class="row">
+            <div class="col-sm-8 col-md-8 col-sx-12 col-lg-9">
+              {% if articles %}
+                {% for article in (articles_page.object_list if articles_page else articles) %}  
+                <article class="post">
+                  <h2 class="title"><a href="{{ SITEURL }}/{{ article.url}}">{{ article.title }}</a></h2>
+                  <p>Publicado el {{ article.locale_date }}</p>
+                  <section class="post_content">
+                    {{ article.summary }}<br />
+                    <a class="more" href="{{ SITEURL }}/{{ article.url }}">Seguir leyendo...</a>
+                  </section>
+                </article><hr />
+              {% endfor %}
+             {% endif %}
+            </div>
+            <div class="col-sm-4 col-md-4 col-sx-12 col-lg-3">
+            <br />
+                {% include 'twitter-sidebar.html' %}
+                {% include 'adsense-sidebar.html' %}
+            </div>
+        </div>
+        {% include 'adsense-footer.html' %}
+        <br />
+        </div>
+    </div>
+{% endblock %}
